@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Twitterwall</title>
+    <script type="application/javascript" src="search.js"></script>
+    <style>
+        body{
+            font-family: "helvetica neue";
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        #title{
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        #nav{
+            background-color: #e1e1e1;
+        }
+        #searchterm{
+            width: 20em;
+        }
+        #wrapper{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+        #outerwrapper{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            flex-wrap: wrap;
+        }
+        #outerwrapper aside {
+            flex-grow: 0;
+            float: left;
+            margin: 0.5em;
+            padding: 0.2em;
+        }
+        #innerwrapper{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            flex-wrap: wrap;
+        }
+        #innerwrapper article {
+            float: left;
+            margin: 0.5em;
+            padding: 0.2em;
+            /* Kopiert und angepasst */
+            animation: slidein 0.5s ease;
+        }
+        #buttonwrapper{
+            float: left;
+        }
+        #buttonwrapper button{
+            margin: 0.1em;
+        }
+        #statusmessage{
+            padding: 0.2;
+            font-size: 0.8em;
+            color: red;
+        }
+        #search{
+            margin-right: 0.1em;
+        }
+        #safelabel{
+            float: left;
+            color: white;
+            margin: 0.1em;
+        }
+        #safesearchterm{
+            margin: 0.2em;
+        }
+        .input-group{
+            margin: 1em;    
+        }
+        /* Folgender Code zu Keyframe ist kopiert und angepasst worden */
+        @keyframes slidein {
+            0%{
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100%{
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="display-3 bg-primary text-white" id="title">My Twitterwall</h1>
+    <nav id= "nav" class="nav">
+        <div class="input-group mb-3 justify-content-center">
+            <div class="input-group-prepend">
+                <button id="search" class="btn btn-primary" type="button">Tweet Suche</button> 
+                <div class="input-group-text bg-primary card">
+                    <label id="safelabel"><input type="checkbox" id="safesearchterm">Suche Speichern</label>
+                </div> 
+            </div>
+            <input type="text" id="searchterm" placeholder="Suchbegriff" aria-describedby="next"> 
+            <button id="showsearchtermlist" class="btn btn-primary" type="button">Suchbegriffe</button>
+            <button id="delete" class="btn btn-danger" type="button">Bildschirm leeren</button>
+            <div class="input-group-append">
+                <button id="logout" class="btn btn-primary" type="button">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper" class="bg-light text-white">
+        <div id="innerwrapper" class="bg-light text-white"></div>
+        <div id="outerwrapper" class="bg-light text-white"></div>
+    </div>
+</body>
+</html>
